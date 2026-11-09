@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fruit Form</title>
+</head>
+<body>
+  <h1 th:text="${fruit.id != null ? 'Update Fruit' : 'Create Fruit'}"></h1>
+  <form th:action="@{${fruit.id != null} ? '/fruits/update/' + ${fruit.id} : '/fruits'}" th:object="${fruit}" method="post">
+    <div>
+      <label for="name">Fruit Name:</label>
+      <input type="text" id="name" th:field="*{name}" placeholder="Enter fruit name" />
+    </div>
+    <button type="submit" th:text="${fruit.id != null ? 'Update' : 'Create'}">Save</button>
+  </form>
+</body>
+</html>
